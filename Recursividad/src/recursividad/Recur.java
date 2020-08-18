@@ -11,6 +11,8 @@ package recursividad;
  */
 public class Recur {
 
+    private int a, b, c;
+
     public void recursividad(int x) {
 
         if (x != 0) {
@@ -65,6 +67,53 @@ public class Recur {
             return 1;
         } else {
             return fibonacci1(n - 1) + fibonacci1(n - 2);
+        }
+    }
+
+    public void fibonacci2(int n) {
+        a = 0;
+        b = 1;
+        fibonacci21(n);
+    }
+
+    private void fibonacci21(int n) {
+        //condición de llamado recursivo
+        if (n >= 1) {
+            c = a + b;
+            System.out.print(a + " ");
+            a = b;
+            b = c;
+            fibonacci21(--n);
+        }
+    }
+
+    public int mcd(int n, int m) {
+        //caso base
+        if (n == m) {
+            return n;
+        } else if (n > m) {
+            return mcd(n - m, m);
+        } else {
+            return mcd(n, m - n);
+        }
+    }
+
+    public boolean par(int n) {
+        System.out.println("");
+        if (n == 0) {
+            return true;
+        } else {
+            return impar(n - 1);
+        }
+    }
+
+    private boolean impar(int n) {
+        System.out.println("");
+        if (n == 0) {
+            return false;
+        }
+        else{
+            return par(n-1);
         }
     }
 }

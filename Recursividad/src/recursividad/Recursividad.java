@@ -24,9 +24,12 @@ public class Recursividad {
 //        for (int i = 0; i < 5; i++) {
 //            System.out.println("Elemento fibonacci:"+r.fibonacci1(i));
 //        }
-            System.out.println(r.fibonacci1(10));
-                r.fibonacci0(10);
-
+//        System.out.println(r.fibonacci1(10));
+//        r.fibonacci0(10);
+        r.fibonacci2(10);
+        System.out.println("M.C.D(2028,1992):" + r.mcd(2028, 1992));
+        System.out.println("Validar número par(5): " + r.par(5));
+        
     }
-
+    
 }
