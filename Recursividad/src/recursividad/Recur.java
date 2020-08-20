@@ -66,7 +66,7 @@ public class Recur {
         } else if (n == 1) {
             return 1;
         } else {
-            return fibonacci1(n - 1) + fibonacci1(n - 2);
+            return fibonacci1(n - 1) + fibonacci1(n - 2) + fibonacci1(n-3);
         }
     }
 
@@ -115,5 +115,28 @@ public class Recur {
         else{
             return par(n-1);
         }
+    }
+    //posible ejemplo de tribonacci
+    public void tribonacci(int n){
+        
+        
+        //antes de la llamada recursiva, mostrar dato
+        
+        //tribonacci(n-1)+tribonacci(n-2)+tribonacci(n-3);
+    }
+    
+    public boolean determinarSiExiste(int[] a, int d){
+        //recorrer recursivamente el arreglo
+        determinarSiExiste(a, d);
+        return true;
+    }
+    
+    public boolean verificarPalindromo(String s){
+        s.charAt(0);//tomar la primera letra
+        s.charAt(s.length()-1);//ultima letra
+        s.substring(1);//eliminar la primera letra
+        verificarPalindromo(s);
+        s.toCharArray();//convertir el texto a un arreglo
+        return true;
     }
 }

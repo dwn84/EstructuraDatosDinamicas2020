@@ -18,6 +18,10 @@ public class Recursividad {
         // TODO code application logic here
 
         Recur r = new Recur();
+        r.tribonacci(7);
+        int[] datos = new int[]{1,5,2,5,8,2,1,9};
+        System.out.println(r.determinarSiExiste(datos,5));
+        
         //r.recursividad(10);
 //        System.out.println(r.sumatoria(5));
 //        System.out.println(r.factorial(6));
