@@ -66,7 +66,7 @@ public class Recur {
         } else if (n == 1) {
             return 1;
         } else {
-            return fibonacci1(n - 1) + fibonacci1(n - 2) + fibonacci1(n-3);
+            return fibonacci1(n - 1) + fibonacci1(n - 2) + fibonacci1(n - 3);
         }
     }
 
@@ -111,32 +111,73 @@ public class Recur {
         System.out.println("");
         if (n == 0) {
             return false;
-        }
-        else{
-            return par(n-1);
+        } else {
+            return par(n - 1);
         }
     }
     //posible ejemplo de tribonacci
-    public void tribonacci(int n){
-        
-        
+
+    public void tribonacci(int n) {
+        tribonacci(n, 0, 0, 1);
+
+    }
+
+    private void tribonacci(int n, int a, int b, int c) {
+
+        //caso base
+        if (n == 0) {
+            return;
+        } else {
+            System.out.print(a + " ");
+            tribonacci(n - 1, b, c, (a + b + c));
+        }
+
         //antes de la llamada recursiva, mostrar dato
-        
         //tribonacci(n-1)+tribonacci(n-2)+tribonacci(n-3);
     }
-    
-    public boolean determinarSiExiste(int[] a, int d){
+
+    public boolean determinarSiExiste(int[] a, int d) {
         //recorrer recursivamente el arreglo
-        determinarSiExiste(a, d);
-        return true;
+        //determinarSiExiste(a, d);
+        return determinarSiExiste(a, d, 0);
+    }
+
+    private boolean determinarSiExiste(int[] a, int d, int contador) {
+        if (d == a[contador]) {
+            return true;
+        } else if (contador == (a.length - 1)) {
+            return false;
+        } else {
+            return determinarSiExiste(a, d, ++contador);
+        }
+
+    }
+
+    public boolean verificarPalindromo(String s) {
+
+        if (s.length() == 1 || s.length() == 0) {
+            return true;
+        } else if (s.charAt(0) != s.charAt(s.length() - 1)) {
+            return false;
+        } else {
+            s = s.substring(1);
+            s = s.substring(0, s.length() - 1);
+            return verificarPalindromo(s);
+        }
+//        s.charAt(0);//tomar la primera letra
+//        s.charAt(s.length() - 1);//ultima letra
+//        s.substring(1);//eliminar la primera letra
+//        verificarPalindromo(s);
+//        s.toCharArray();//convertir el texto a un arreglo
+//        return true;
     }
     
-    public boolean verificarPalindromo(String s){
-        s.charAt(0);//tomar la primera letra
-        s.charAt(s.length()-1);//ultima letra
-        s.substring(1);//eliminar la primera letra
-        verificarPalindromo(s);
-        s.toCharArray();//convertir el texto a un arreglo
-        return true;
+    public int numerologia(int n){
+        if(n<10){
+            return n;
+        }else{
+            return numerologia((n/10)+(n%10));
+        }
+            
     }
 }
