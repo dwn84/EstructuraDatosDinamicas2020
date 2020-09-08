@@ -16,6 +16,36 @@ public class Lists {
      */
     public static void main(String[] args) {
 
+        //pruebas de lista enlazada doble
+        DoubleLinkedList<Double> miListaD = new DoubleLinkedList<>();
+//        miListaD.add(1.1);
+//        miListaD.add(2.2);
+//        miListaD.add(3.3);
+//        miListaD.add(7.7);
+//        miListaD.add(8.8);
+//        miListaD.addLast(1.1);
+//        miListaD.addLast(2.2);
+//        miListaD.addLast(3.3);
+        miListaD.addOrdered(1.1);
+        miListaD.addOrdered(2.2);
+        miListaD.addOrdered(3.3);
+        miListaD.addOrdered(0.1);
+        miListaD.addOrdered(1.7);
+
+        System.out.println("Datos de la lista enlazada doble: "
+                           + miListaD.showData());
+
+        miListaD.deleteLast();
+        miListaD.deleteLast();
+        miListaD.deleteLast();
+        miListaD.deleteLast();
+        miListaD.deleteLast();
+        miListaD.deleteLast();
+        miListaD.deleteLast();
+        miListaD.deleteLast();
+
+        System.out.println("Datos de la lista enlazada doble: "
+                           + miListaD.showData());
 
 //        // TODO code application logic here
 //        Node<Integer> vagon1 = new Node<>(11);
@@ -28,9 +58,7 @@ public class Lists {
 //        vagon2.setNextNode(vagon3);
 //        vagon3.setNextNode(vagon4);
 //        vagon4.setNextNode(vagon5);
-    
 //        System.out.println(vagon1.getNextNode().getNextNode().getNextNode().getData());       
-
 //        String a = "z", b="z";
 //        System.out.println("Resultado de la comparación: "+ a.compareTo(b));
 //        System.out.println("");
@@ -49,7 +77,6 @@ public class Lists {
 //          miListaS.addOrdered(55);
 //          miListaS.addOrdered(66);
 //          miListaS.addOrdered(8);
-          
 //        miListaS.add(11);
 //        miListaS.add(12);
 //        miListaS.add(13);
@@ -65,11 +92,6 @@ public class Lists {
 
         System.out.println(miListaS.showData());
 
-        
-    
     }
-    
 
-
-  
 }

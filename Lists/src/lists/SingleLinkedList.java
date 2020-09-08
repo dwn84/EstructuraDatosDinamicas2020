@@ -135,6 +135,14 @@ public class SingleLinkedList<T extends Number & Comparable> implements Ilist<T>
         }
     }
 
+    /**
+     * Muestra el total de datos
+     * @return El total de datos
+     */
+    public int getSize() {
+        return size;
+    }
+
 
     
 }
