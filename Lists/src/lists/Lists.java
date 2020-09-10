@@ -15,6 +15,27 @@ public class Lists {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        CircularDoubleLinkedList<Integer> miListaCD = new CircularDoubleLinkedList<>();
+        miListaCD.add(11);
+        miListaCD.add(22);
+        miListaCD.add(33);
+        miListaCD.add(88);
+        System.out.println("Datos de la lista circular doble: "+ miListaCD.showData());
+        
+        CircularSingleLinkedList<String> miListaCS = new CircularSingleLinkedList<>();
+        miListaCS.add("33");
+        miListaCS.add("44");
+        miListaCS.add("55");
+        miListaCS.add("77");
+        miListaCS.add("88");
+        miListaCS.add("99");
+        miListaCS.add("A7");
+        miListaCS.add("I7");
+        System.out.println("Información de lista circular simple: " + miListaCS.showData());
+        miListaCS.delete();
+        miListaCS.delete();
+        System.out.println("Información de lista circular simple: " + miListaCS.showData());
 
         //pruebas de lista enlazada doble
         DoubleLinkedList<Double> miListaD = new DoubleLinkedList<>();
@@ -33,7 +54,7 @@ public class Lists {
         miListaD.addOrdered(1.7);
 
         System.out.println("Datos de la lista enlazada doble: "
-                           + miListaD.showData());
+                + miListaD.showData());
 
         miListaD.deleteLast();
         miListaD.deleteLast();
@@ -45,7 +66,7 @@ public class Lists {
         miListaD.deleteLast();
 
         System.out.println("Datos de la lista enlazada doble: "
-                           + miListaD.showData());
+                + miListaD.showData());
 
 //        // TODO code application logic here
 //        Node<Integer> vagon1 = new Node<>(11);
