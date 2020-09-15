@@ -33,7 +33,7 @@ public class Lists {
         circular2.add("77");
         //prueba de unir listas
         circular1.joinList(circular2);
-        System.out.println("Listas unidasd: "+ circular1.showData());
+        System.out.println("Listas unidas: "+ circular1.showData());
 
         CircularSingleLinkedList<String> miListaCS = new CircularSingleLinkedList<>();
         miListaCS.add("33");
