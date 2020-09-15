@@ -23,6 +23,15 @@ public class DoubleLinkedList<T extends Number & Comparable> implements Ilist<T>
     public boolean isEmpty() {
         return head == null;
     }
+    /**
+     * Determinar si un dato ingresado por el usuario existe en la lista.
+     * @param d Dato a buscar
+     * @return Verdadero si lo encuentra
+     */
+    public boolean exist(T d){
+        //recorrer la estructura
+        return false;
+    }
 
     @Override
     public void add(T d) {

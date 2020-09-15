@@ -15,14 +15,26 @@ public class Lists {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         CircularDoubleLinkedList<Integer> miListaCD = new CircularDoubleLinkedList<>();
         miListaCD.add(11);
         miListaCD.add(22);
         miListaCD.add(33);
         miListaCD.add(88);
-        System.out.println("Datos de la lista circular doble: "+ miListaCD.showData());
-        
+        System.out.println("Datos de la lista circular doble: " + miListaCD.showData());
+
+        CircularSingleLinkedList<String> circular1 = new CircularSingleLinkedList<>();
+        circular1.add("33");
+        circular1.add("22");
+        circular1.add("11");
+        CircularSingleLinkedList<String> circular2 = new CircularSingleLinkedList<>();
+        circular2.add("99");
+        circular2.add("88");
+        circular2.add("77");
+        //prueba de unir listas
+        circular1.joinList(circular2);
+        System.out.println("Listas unidasd: "+ circular1.showData());
+
         CircularSingleLinkedList<String> miListaCS = new CircularSingleLinkedList<>();
         miListaCS.add("33");
         miListaCS.add("44");

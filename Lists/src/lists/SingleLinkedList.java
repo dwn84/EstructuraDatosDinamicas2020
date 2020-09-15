@@ -12,11 +12,17 @@ package lists;
 public class SingleLinkedList<T extends Number & Comparable> implements Ilist<T> {
 
     private Node<T> head;
+    private int maj;
+    private int min;    
+    private int sum;    
     private int size;
 
     public SingleLinkedList() {
         head=null;
         size=0;
+        maj = 0;
+        min = Integer.MAX_VALUE;
+        
     }   
     
     @Override
@@ -31,6 +37,10 @@ public class SingleLinkedList<T extends Number & Comparable> implements Ilist<T>
         */
     }
     
+    public double getAverage(){
+        return sum/size;
+    }
+    
     @Override
     public void add(T d) {
         //1. Crear el nodo
@@ -41,6 +51,8 @@ public class SingleLinkedList<T extends Number & Comparable> implements Ilist<T>
         head = newNode;
         //4. Incrementar el tamaño
         size++;
+        //validar el dato con el mayor y el menor para actualizar dato
+        //sumar los datos
     }
 
     @Override
@@ -54,10 +66,10 @@ public class SingleLinkedList<T extends Number & Comparable> implements Ilist<T>
             }
             Node<T> newNode = new Node<>(d);
             current.setNextNode(newNode);
-        }
-        
-
-        
+        }    
+        size++;
+        //validar el dato con el mayor y el menor para actualizar dato
+        //sumar los datos
     }
 
     @Override
@@ -93,7 +105,8 @@ public class SingleLinkedList<T extends Number & Comparable> implements Ilist<T>
         newNode.setNextNode(current.getNextNode());
         current.setNextNode(newNode);        
         }
-        
+        //validar el dato con el mayor y el menor para actualizar dato
+        //sumar los datos
         size++;
     }
 
@@ -106,11 +119,16 @@ public class SingleLinkedList<T extends Number & Comparable> implements Ilist<T>
             head = head.getNextNode();
         }
         size--;
-        
+        //verificar si el dato eliminado es el mínimo o máximo: actualizar(recorrer estructura)
+        //restar de la suma de datos
     }
 
     @Override
     public void deleteLast() {
+        
+        //localizar el nodo anterior a getNextNode()==null
+        //restar de la suma de datos
+
     }
 
     @Override
@@ -130,6 +148,7 @@ public class SingleLinkedList<T extends Number & Comparable> implements Ilist<T>
             for(Node<T> i=head;i!=null;i = i.getNextNode()){
                 data += i.getData() + " ";
             } 
+            //verificar si el dato eliminado es el mínimo o máximo: actualizar(recorrer estructura)
             return data;
             
         }
@@ -141,6 +160,20 @@ public class SingleLinkedList<T extends Number & Comparable> implements Ilist<T>
      */
     public int getSize() {
         return size;
+    }
+
+    /**
+     * @return the maj
+     */
+    public int getMaj() {
+        return maj;
+    }
+
+    /**
+     * @return the min
+     */
+    public int getMin() {
+        return min;
     }
 
 

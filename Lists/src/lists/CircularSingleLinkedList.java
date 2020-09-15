@@ -62,8 +62,15 @@ public class CircularSingleLinkedList<T> implements Ilist<T> {
     }
 
     @Override
+    
     public void deleteLast() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Eliminar el último dato.
+    }
+    
+    public void joinList(CircularSingleLinkedList otherList){
+        //actualizar la cola para que apunte a la cabeza de la otra lista
+        //actualizar la cola de la otra lista para que apunte a la cabeza
+
     }
 
     @Override

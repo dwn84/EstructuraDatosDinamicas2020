@@ -46,19 +46,28 @@ public class CircularDoubleLinkedList<T> implements Ilist<T> {
 
     @Override
     public void addOrdered(T d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       //Agregar datos ordenados sin repetir valor
+       //(si el dato ya se encuentra en la lista, no ingresarlo y mostrar advertencia).
     }
 
     @Override
     public void delete() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Eliminar el primer dato.
     }
 
     @Override
     public void deleteLast() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Eliminar el último dato.
     }
-
+/**
+ * Mostrar los datos de forma descendente.
+ * @return LIsta de datos en orden descendente
+ */
+    public String showDataDesc(){
+        String data = "";
+        return data;
+    }
+    
     @Override
     public String showData() {
                if (isEmpty()) {
