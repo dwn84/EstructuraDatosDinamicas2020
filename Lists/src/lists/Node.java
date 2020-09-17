@@ -18,6 +18,11 @@ public class Node<V>{
         this.data = data;
         nextNode = null;
     }
+    
+    public Node(V data, Node nextNode){
+        this.data = data;
+        this.nextNode = nextNode;
+    }
 
     
     

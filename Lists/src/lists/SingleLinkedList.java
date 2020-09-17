@@ -51,6 +51,8 @@ public class SingleLinkedList<T extends Number & Comparable> implements Ilist<T>
         head = newNode;
         //4. Incrementar el tamaño
         size++;
+
+        sum = sum + d.intValue();
         //validar el dato con el mayor y el menor para actualizar dato
         //sumar los datos
     }

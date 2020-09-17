@@ -5,6 +5,9 @@
  */
 package lists;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author samaniw
@@ -16,10 +19,41 @@ public class Lists {
      */
     public static void main(String[] args) {
 
+        LinkedStack<Integer> varta = new LinkedStack<>();
+        varta.push(11);
+        varta.push(22);
+        System.out.println("Ultimo dato de la pila: "+varta.peek());
+        varta.push(33);
+        try {
+            varta.pop();
+            varta.pop();
+            varta.pop();
+            varta.pop();
+            varta.pop();
+            varta.pop();
+            varta.pop();
+            varta.pop();
+            varta.pop();
+        } catch (Exception ex) {
+            Logger.getLogger(Lists.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        System.out.println("");
+        ArrayStack duracell = new ArrayStack(5);
+        duracell.push(55);
+        duracell.push(66);
+        duracell.push(77);
+        duracell.push(88);
+        duracell.push(99);
+        duracell.push(101);
+        duracell.pop();
+        System.out.println("Último dato de la pila: " + duracell.peek());
+
         CircularDoubleLinkedList<Integer> miListaCD = new CircularDoubleLinkedList<>();
         miListaCD.add(11);
         miListaCD.add(22);
         miListaCD.add(33);
+        miListaCD.add(88);
         miListaCD.add(88);
         System.out.println("Datos de la lista circular doble: " + miListaCD.showData());
 
@@ -33,7 +67,7 @@ public class Lists {
         circular2.add("77");
         //prueba de unir listas
         circular1.joinList(circular2);
-        System.out.println("Listas unidas: "+ circular1.showData());
+        System.out.println("Listas unidas: " + circular1.showData());
 
         CircularSingleLinkedList<String> miListaCS = new CircularSingleLinkedList<>();
         miListaCS.add("33");
