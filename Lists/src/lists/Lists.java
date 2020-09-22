@@ -19,10 +19,34 @@ public class Lists {
      */
     public static void main(String[] args) {
 
+        //cola con arreglo circular
+        System.out.println("Prueba de cola circular");
+        ArrayQueue dataQ = new ArrayQueue(5);
+        dataQ.add(11);
+        dataQ.add(22);
+        dataQ.add(33);
+        dataQ.add(44);
+        dataQ.add(55);
+        dataQ.remove();
+        dataQ.remove();
+        dataQ.remove();
+        dataQ.add(66);
+        dataQ.add(77);
+        dataQ.add(88);
+        //dataQ.add(99);
+        System.out.println("");
+
+        //convertir a binario
+        System.out.println("Conversion a binario: " + toBinary(701));
+
+        //validar expresión con parentesis        
+        //((5+6)/8)+(88+1))
+        System.out.println("Validar expresión: " + checkParentheses("((()(()(())())))"));
+
         LinkedStack<Integer> varta = new LinkedStack<>();
         varta.push(11);
         varta.push(22);
-        System.out.println("Ultimo dato de la pila: "+varta.peek());
+        System.out.println("Ultimo dato de la pila: " + varta.peek());
         varta.push(33);
         try {
             varta.pop();
@@ -158,6 +182,46 @@ public class Lists {
         miListaS.delete();
 
         System.out.println(miListaS.showData());
+
+    }
+
+    public static String toBinary(int n) {
+        LinkedStack<Integer> residue = new LinkedStack<>();
+        String binary = "";
+        while (n > 0) {
+            residue.push(n % 2);
+            n /= 2;
+        }
+        while (!residue.empty()) {
+            try {
+                binary += residue.pop();
+            } catch (Exception e) {
+                System.out.println("Error interno: " + e.getMessage());
+            }
+        }
+        return binary;
+    }
+
+    public static boolean checkParentheses(String exp) {
+        LinkedStack<String> checkBalance = new LinkedStack<>();
+        char[] arrayExp = exp.toCharArray();
+        for (int i = 0; i < arrayExp.length; i++) {
+            if (arrayExp[i] == '(') {
+                checkBalance.push("(");
+            } else if (arrayExp[i] == ')') {
+                if (!checkBalance.empty()) {
+                    try {
+                        checkBalance.pop();
+                    } catch (Exception e) {
+                        System.out.println("Error interno: " + e.getMessage());
+                    }
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        return checkBalance.empty();
 
     }
 
