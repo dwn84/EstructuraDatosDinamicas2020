@@ -19,6 +19,14 @@ public class Lists {
      */
     public static void main(String[] args) {
 
+        //cola enlazada
+        System.out.println("Prueba de cola enlazada");
+        LinkedQueue secondQ = new LinkedQueue();
+        secondQ.add(11);
+        secondQ.add(22);
+        secondQ.add(33);
+        secondQ.add(44);
+        System.out.println("");
         //cola con arreglo circular
         System.out.println("Prueba de cola circular");
         ArrayQueue dataQ = new ArrayQueue(5);

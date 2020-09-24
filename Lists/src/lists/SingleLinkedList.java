@@ -147,7 +147,7 @@ public class SingleLinkedList<T extends Number & Comparable> implements Ilist<T>
 //            }
             
             //for (int i = 0; i < n; i=i+1) {
-            for(Node<T> i=head;i!=null;i = i.getNextNode()){
+            for(Node<T> i=head;i.getNextNode()!=null;i = i.getNextNode()){
                 data += i.getData() + " ";
             } 
             //verificar si el dato eliminado es el mínimo o máximo: actualizar(recorrer estructura)
