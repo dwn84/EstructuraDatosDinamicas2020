@@ -5,6 +5,8 @@
  */
 package lists;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,6 +20,27 @@ public class Lists {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        DoubleLinkedList<Integer> pruebaQuiz = new DoubleLinkedList<>();
+        pruebaQuiz.add(55);
+        pruebaQuiz.add(99);
+        pruebaQuiz.add(66);
+        pruebaQuiz.add(33);
+        pruebaQuiz.add(77);
+        pruebaQuiz.add(55);
+        pruebaQuiz.add(33);
+        pruebaQuiz.add(99);
+        pruebaQuiz.add(33);
+        System.out.println("Datos de la lista: " + pruebaQuiz.showData());
+        pruebaQuiz.deleteDuplicates();
+        System.out.println("Datos de la lista: " + pruebaQuiz.showData());
+
+        Queue<Integer> q = new LinkedList<>();
+        q.add(1);
+        q.add(2);
+        q.add(1);
+        q.add(3);
+        q.add(1);
+        System.out.println(q);
 
         //cola enlazada
         System.out.println("Prueba de cola enlazada");

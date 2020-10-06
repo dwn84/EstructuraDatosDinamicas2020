@@ -23,12 +23,14 @@ public class DoubleLinkedList<T extends Number & Comparable> implements Ilist<T>
     public boolean isEmpty() {
         return head == null;
     }
+
     /**
      * Determinar si un dato ingresado por el usuario existe en la lista.
+     *
      * @param d Dato a buscar
      * @return Verdadero si lo encuentra
      */
-    public boolean exist(T d){
+    public boolean exist(T d) {
         //recorrer la estructura
         return false;
     }
@@ -120,6 +122,29 @@ public class DoubleLinkedList<T extends Number & Comparable> implements Ilist<T>
      */
     public int getSize() {
         return size;
+    }
+
+    public boolean deleteDuplicates() {
+        boolean deleted = false;
+        DoubleNode<T> current = head;
+        while (current.getNextNode() != null) {
+            DoubleNode<T> innerCurrent = current.getNextNode();
+            while(innerCurrent!=null) {
+                if(innerCurrent.getData() == current.getData()){
+                    if(innerCurrent.getNextNode()==null){
+                        innerCurrent.getPreviousNode().setNextNode(null);                    
+                    }else{
+                        innerCurrent.getPreviousNode().setNextNode(innerCurrent.getNextNode());
+                        innerCurrent.getNextNode().setPreviousNode(innerCurrent.getPreviousNode()); 
+                    }
+                    deleted = true;
+                }
+                innerCurrent = innerCurrent.getNextNode();
+            }
+            current = current.getNextNode();
+        }
+        
+        return deleted;
     }
 
 }
