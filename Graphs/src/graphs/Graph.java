@@ -36,7 +36,6 @@ public class Graph {
         aMatrix[source][destination] = true;
         //aMatrix[destination][source] = true;//se habilita para un grafo sin dirección
         aList[source].add(destination);
-
     }
 
     public void deleteEdge(int source, int destination) throws Exception {
@@ -95,5 +94,14 @@ public class Graph {
                 }
             }
         }
+    }
+
+    public void DFS(int source) {
+        boolean visited[] = new boolean[totalNodes];
+        DFS(source,visited);
+    }
+    
+    private void DFS(int source, boolean visited[]){
+        DFS(source, visited);//...
     }
 }
