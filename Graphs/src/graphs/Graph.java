@@ -98,10 +98,16 @@ public class Graph {
 
     public void DFS(int source) {
         boolean visited[] = new boolean[totalNodes];
-        DFS(source,visited);
+        DFS(source, visited);
     }
-    
-    private void DFS(int source, boolean visited[]){
-        DFS(source, visited);//...
+
+    private void DFS(int source, boolean visited[]) {
+        visited[source] = true;
+        System.out.print(source + "");
+        for (Integer v : aList[source]) {
+            if (!visited[v]) {
+                DFS(v, visited);//...
+            }
+        }
     }
 }

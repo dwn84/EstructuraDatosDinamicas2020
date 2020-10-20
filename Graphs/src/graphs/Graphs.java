@@ -46,7 +46,13 @@ public class Graphs {
 //        System.out.println(grafito.showAList());
 
         //mostrar recorrido en anchura:BFS
-        grafito.BFS(3);
+        System.out.print("BFS:");
+        grafito.BFS(0);
+        System.out.println("");
+        System.out.print("DFS:");
+        //mostrar recorrido en profundidad: DFS
+        grafito.DFS(0);
+        System.out.println("");
 
     }
 
