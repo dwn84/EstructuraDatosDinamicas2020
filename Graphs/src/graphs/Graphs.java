@@ -5,6 +5,10 @@
  */
 package graphs;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.PriorityQueue;
+
 /**
  *
  * @author samaniw
@@ -17,6 +21,48 @@ public class Graphs {
     public static void main(String[] args) {
         // TODO code application logic here
 
+        /*
+//prueba de cola priorizada
+        PriorityQueue<EdgeNode> PQ = new PriorityQueue();
+        PQ.add(new EdgeNode("A", 5));
+        PQ.add(new EdgeNode("B", 3));
+        PQ.add(new EdgeNode("C", 11));
+        PQ.add(new EdgeNode("X", 7));
+        System.out.println("Cola priorizada");
+        System.out.println(PQ);
+        System.out.println("nodo a la cabeza de la cola");
+        System.out.println(PQ.peek().getDestinationNode());
+        PQ.remove();
+        System.out.println(PQ);
+        System.out.println("nodo a la cabeza de la cola");
+        System.out.println(PQ.peek().getDestinationNode());
+       
+         */
+ /*
+        //Prueba de almacenamiento de datos en mapa de recorrido
+        HashMap<String, EdgeNode> map = new HashMap<>();
+        map.putIfAbsent("A", new EdgeNode("B", 2));
+        map.putIfAbsent("B", new EdgeNode("C", 4));
+
+        for (String mykeys : map.keySet()) {
+            System.out.print(map.get(mykeys).getDestinationNode()+ " ");
+            System.out.print(map.get(mykeys).getWeight()+ " ");
+            System.out.print(mykeys);
+            System.out.println("");
+        }
+         */
+        DynamicGraph superGrafo = new DynamicGraph();
+        superGrafo.addNode("A");
+        superGrafo.addNode("B");
+        superGrafo.addNode("C");
+        superGrafo.addNode("D");
+        superGrafo.addNode("E");
+        superGrafo.addNode("F");
+        superGrafo.addNode("G");
+        superGrafo.addEgde("A", "B", 2);
+        superGrafo.addEgde("A", "C", 5);
+        superGrafo.showAList();
+ 
         Graph grafito = new Graph(7);
         grafito.addEdge(0, 1);
         grafito.addEdge(0, 2);
@@ -32,7 +78,7 @@ public class Graphs {
 
         System.out.println("lista de adyacencia:");
         System.out.println(grafito.showAList());
-                
+
         try {
 //            grafito.deleteEdge(0, 1);
         } catch (Exception e) {
@@ -44,7 +90,6 @@ public class Graphs {
 //
 //        System.out.println("lista de adyacencia:");
 //        System.out.println(grafito.showAList());
-
         //mostrar recorrido en anchura:BFS
         System.out.print("BFS:");
         grafito.BFS(0);
