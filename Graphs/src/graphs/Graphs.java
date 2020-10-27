@@ -61,8 +61,22 @@ public class Graphs {
         superGrafo.addNode("G");
         superGrafo.addEgde("A", "B", 2);
         superGrafo.addEgde("A", "C", 5);
+        superGrafo.addEgde("A", "D", 1);
+        superGrafo.addEgde("C", "E", 3);
+        superGrafo.addEgde("D", "G", 3);
+        superGrafo.addEgde("E", "F", 2);
+        superGrafo.addEgde("F", "G", 1);
         superGrafo.showAList();
- 
+
+        HashMap<String, EdgeNode> mapita = superGrafo.Dijkstra("A");
+
+        for (String mykeys : mapita.keySet()) {
+            System.out.print(mykeys + " ");
+            System.out.print(mapita.get(mykeys).getWeight() + " ");
+            System.out.print(mapita.get(mykeys).getDestinationNode() + " ");
+
+            System.out.println("");
+        }
         Graph grafito = new Graph(7);
         grafito.addEdge(0, 1);
         grafito.addEdge(0, 2);
