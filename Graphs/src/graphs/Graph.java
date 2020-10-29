@@ -76,6 +76,22 @@ public class Graph {
         }
         return list;
     }
+    
+    /**
+     * TODO
+     * Mostrar lista de arcos
+     * @return 
+     */
+    public String showEdges(){
+        return "";
+    }
+    /**
+     * Determinar si cada nodo tiene el mismo número de entradas y salidas.
+     * @return 
+     */
+    public boolean validateInOut(){
+        return true;
+    }
 
     public void BFS(int source) {
         boolean visited[] = new boolean[totalNodes];
