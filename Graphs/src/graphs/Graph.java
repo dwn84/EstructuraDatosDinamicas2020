@@ -86,6 +86,7 @@ public class Graph {
         return "";
     }
     /**
+     * TODO
      * Determinar si cada nodo tiene el mismo número de entradas y salidas.
      * @return 
      */

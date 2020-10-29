@@ -87,6 +87,11 @@ public class Graphs {
         grafito.addEdge(3, 5);
         grafito.addEdge(5, 6);
         grafito.addEdge(6, 4);
+        //validación de puntos del taller
+        System.out.println("Mostrar arcos");
+        System.out.println(grafito.showEdges());
+        //validar si entradas y salidas son iguales para todos los nodos
+        System.out.println("Validar In - Out:" + grafito.validateInOut());
         System.out.println("matriz de adyacencia:");
         System.out.println(grafito.showAMatrix());
 
