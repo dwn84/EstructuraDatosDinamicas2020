@@ -11,8 +11,8 @@ package trees;
  */
 public class BinarySearchTree {
 
-    public BinaryNode root;
-    private BinaryNode father;
+    private BinaryNode root;
+    public BinaryNode father;
     private boolean fatherposition;
     private int nodes;
     private int leafs;
@@ -34,11 +34,18 @@ public class BinarySearchTree {
     private BinaryNode search(int data, BinaryNode currentNode) {
         if (currentNode == null) {
             return null;
-        } else if (data == currentNode.getData()) {
+        }
+        if (data == currentNode.getData()) {
             return currentNode;
-        } else if (data > currentNode.getData()) {
+        }
+
+        father = currentNode;
+
+        if (data > currentNode.getData()) {
+            fatherposition = true;
             return search(data, currentNode.getRight());
         } else {
+            fatherposition = false;
             return search(data, currentNode.getLeft());
 
         }
@@ -62,39 +69,88 @@ public class BinarySearchTree {
             } else {
                 currentNode.setLeft(new BinaryNode(data));
             }
-        }else if (data < currentNode.getData()) {
+        } else if (data < currentNode.getData()) {
             if (currentNode.getLeft() == null) {
-                fatherposition=false;
+                fatherposition = false;
                 add(data, currentNode, true);
             } else {
                 add(data, currentNode.getLeft(), false);
             }
+        } else if (currentNode.getRight() == null) {
+            fatherposition = true;
+            add(data, currentNode, true);
         } else {
-            if (currentNode.getRight()== null) {
-                fatherposition=true;
-                add(data, currentNode, true);
-            } else {
-                add(data, currentNode.getRight(), false);
-            }        
+            add(data, currentNode.getRight(), false);
         }
     }
+
     /**
      * Otra forma de agregar datos sin parámetro found
+     *
      * @param data
-     * @param currentRoot 
+     * @param currentRoot
      */
     private void Add(int data, BinaryNode currentRoot) {
         if (data < currentRoot.getData()) {
-            if (currentRoot.getLeft() == null){
+            if (currentRoot.getLeft() == null) {
                 currentRoot.setLeft(new BinaryNode(data));
-            }else{
+            } else {
                 Add(data, currentRoot.getLeft());
             }
-        }else if (currentRoot.getRight() == null) {
+        } else if (currentRoot.getRight() == null) {
             currentRoot.setRight(new BinaryNode(data));
         } else {
             Add(data, currentRoot.getRight());
         }
+    }
+
+    public BinaryNode getMinor(BinaryNode subTree){
+        if(subTree.getLeft()==null){
+            return subTree;
+        }else{
+            return getMinor(subTree.getLeft());
+        }
+    }
+    
+    public void Delete(int data) {
+        if (root == null) {
+            System.out.println("Árbol vacío");
+        } else {
+            DeleteR(data, root);
+        }
+    }
+
+    private void DeleteR(int data, BinaryNode currentNode) {
+        BinaryNode v = search(data);
+        //if v is a leaf
+        if (v.isLeaf()) {
+            //delete leaf v
+            if (fatherposition) {
+                father.setRight(null);
+            } else {
+                father.setLeft(null);
+            }//else if v has 1 child
+        } else if (v.hasOneChild()) {
+            //  bypass v
+            if (v.isChildPosition()) {
+                if (fatherposition) {
+                    father.setRight(v.getRight());
+                } else {
+                    father.setLeft(v.getRight());
+                }
+            } else if (fatherposition) {
+                father.setRight(v.getLeft());
+            } else {
+                father.setLeft(v.getLeft());
+            }
+        //else replace v with successor
+        }else{
+        //Ubicarse en subárbol derecho y localizar el dato menor.
+            BinaryNode minimum = getMinor(v.getRight());
+            Delete(minimum.getData());
+            v.setData(minimum.getData());
+        }
+
     }
 
 }
