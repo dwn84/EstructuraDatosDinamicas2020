@@ -83,6 +83,7 @@ public class EjemploNodosGraficos extends javax.swing.JFrame {
         String n= nodos++ +"";
         g.drawString(n, x+15, y+15);
         g.drawLine(x+30, y+30, x+20, y+20);
+
         x+=50;
         y+=50;
     }//GEN-LAST:event_jButton1ActionPerformed
