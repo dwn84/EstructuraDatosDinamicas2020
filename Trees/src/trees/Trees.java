@@ -26,6 +26,15 @@ public class Trees {
         navidad.add(6);
         navidad.add(9);
         System.out.println("");
+        System.out.println("Recorrido en PreOrden:");
+        navidad.PreOrden();
+        System.out.println("");
+        System.out.println("Recorrido en PostOrden:");
+        navidad.PostOrden();
+        System.out.println("");
+        System.out.println("Recorrido en InOrden:");
+        navidad.InOrden();
+        System.out.println("");
 //        navidad.root.setLeft(new BinaryNode((2)));
 //        navidad.root.getLeft().setLeft(new BinaryNode((4)));
 //        navidad.root.setRight(new BinaryNode(3));

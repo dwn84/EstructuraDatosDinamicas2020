@@ -104,14 +104,22 @@ public class BinarySearchTree {
         }
     }
 
-    public BinaryNode getMinor(BinaryNode subTree){
-        if(subTree.getLeft()==null){
+    public BinaryNode getMinor(BinaryNode subTree) {
+        if (subTree.getLeft() == null) {
             return subTree;
-        }else{
+        } else {
             return getMinor(subTree.getLeft());
         }
     }
-    
+
+    public BinaryNode getMayor(BinaryNode subTree) {
+        if (subTree.getRight() == null) {
+            return subTree;
+        } else {
+            return getMayor(subTree.getRight());
+        }
+    }
+
     public void Delete(int data) {
         if (root == null) {
             System.out.println("Árbol vacío");
@@ -143,14 +151,58 @@ public class BinarySearchTree {
             } else {
                 father.setLeft(v.getLeft());
             }
-        //else replace v with successor
-        }else{
-        //Ubicarse en subárbol derecho y localizar el dato menor.
-            BinaryNode minimum = getMinor(v.getRight());
-            Delete(minimum.getData());
-            v.setData(minimum.getData());
+            //else replace v with successor
+        } else {
+            //buscar sucesor y reemplazar el nodo v
+            //Ubicarse en subárbol derecho y localizar el dato menor.
+//            BinaryNode minimum = getMinor(v.getRight());
+//            Delete(minimum.getData());
+//            v.setData(minimum.getData());
+            //buscar predecesor reemplazar el nodo v 
+            //Ubicarse en subárbol izquierdo y localizar el dato mayor.
+            BinaryNode mayor = getMayor(v.getLeft());
+            Delete(mayor.getData());
+            v.setData(mayor.getData());
+
         }
 
+    }
+
+    public void PreOrden() {
+        PreOrdenR(root);
+    }
+
+    private void PreOrdenR(BinaryNode currentRoot) {
+        if (currentRoot != null) {
+            System.out.print(currentRoot.getData() + "");
+            PreOrdenR(currentRoot.getLeft());
+            PreOrdenR(currentRoot.getRight());
+        }
+    }
+
+    public void InOrden() {
+        InOrdenR(root);
+    }
+
+    private void InOrdenR(BinaryNode currentRoot) {
+        if (currentRoot != null) {
+            InOrdenR(currentRoot.getLeft());
+            System.out.print(currentRoot.getData() + "");
+            InOrdenR(currentRoot.getRight());
+            
+        }
+    }
+
+    public void PostOrden() {
+        PostOrdenR(root);
+    }
+
+    private void PostOrdenR(BinaryNode currentRoot) {
+        if (currentRoot != null) {
+            PostOrdenR(currentRoot.getLeft());
+            PostOrdenR(currentRoot.getRight());
+            System.out.print(currentRoot.getData() + "");
+        }
     }
 
 }
